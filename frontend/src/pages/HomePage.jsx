@@ -76,6 +76,8 @@ const HomePage =()=>{
         }
     })
 
+    
+
     const visibleTaks = filteredTasks.slice(
         (page -1) * visibleTaskLimit, page * visibleTaskLimit
     )
@@ -84,9 +86,10 @@ const HomePage =()=>{
         handlePre()
     }
 
-    const totalPages = Math.ceil(filteredTasks.length - visibleTaskLimit) 
+    const totalPages = Math.ceil(filteredTasks.length / visibleTaskLimit) 
 
     return (
+        
         <div className="min-h-screen w-full bg-[#fefcff] relative">
         {/* Dreamy Sky Pink Glow */}
             <div
