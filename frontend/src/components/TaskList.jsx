@@ -3,24 +3,8 @@ import React from "react"
 import TaskEmptyState from "./TaskEmptyState"
 import TaskCard from "./TaskCard"
 
-const TaskList= ()=>{
-    let filter = 'completed'
-    const filteredTasks= [
-        {
-            _id :1,
-            title: "học react",
-            status: "active",
-            completedAt: null,
-            createdAt : new Date()
-        },
-        {
-            _id :2,
-            title: "học spring boot ", 
-            status: "complete",
-            completedAt: null,
-            createdAt : new Date()
-        },
-    ]
+const TaskList= ({filteredTasks, filter, handleTaskChanged})=>{
+
 
     if(!filteredTasks || filteredTasks.length === 0 ){
         return <TaskEmptyState filter={filter}/>
@@ -33,6 +17,7 @@ const TaskList= ()=>{
                     key={task._id || index}
                     task={task}
                     index={index}
+                    handleTaskChanged={handleTaskChanged}
                 />
             ))}
         </div>

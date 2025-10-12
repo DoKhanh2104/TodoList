@@ -4,18 +4,18 @@ import React from "react"
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
 
-const StartsAndFilters= ({activateTasksCount = 0, completedTasksCount = 0, filter="all"})=>{
+const StartsAndFilters= ({activeTaskCount = 0, completeTaskCount = 0, filter="all" ,setFilter })=>{
     return (
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             
             {/* Phần thống kê */}
             <div className="flex gap-3">
                 <Badge variant="secondary" className="bg-white/50 text-accent-foreground border-info/20">
-                    {activateTasksCount} {FilterType.active}
+                    {activeTaskCount} {FilterType.active}
                 </Badge>
 
                 <Badge variant="secondary" className="bg-white/50 text-success border-success/20">
-                    {completedTasksCount} {FilterType.completed}
+                    {completeTaskCount} {FilterType.completed}
                 </Badge>
             </div>
 
@@ -27,7 +27,8 @@ const StartsAndFilters= ({activateTasksCount = 0, completedTasksCount = 0, filte
                             key={type}
                             variant={filter === type ? 'gradient' : 'ghost'}
                             size="sm"
-                            className={"capitalize"}   
+                            className={"capitalize"} 
+                            onClick ={()=> setFilter(type)}  
                         >
                             <Filter className="size-4"/> {FilterType[type]}
                         </Button>

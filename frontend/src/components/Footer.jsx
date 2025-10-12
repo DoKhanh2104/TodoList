@@ -1,22 +1,22 @@
 import React from "react"
 
-const Footer= ({completedTasksCount = 0, activateTasksCount =0})=>{
+const Footer= ({completeTaskCount = 0, activeTaskCount =0})=>{
     return (
         <>
-            {completedTasksCount + activateTasksCount > 0 && (
+            {completeTaskCount + activeTaskCount > 0 && (
                 <div className="text-center">
                     <p className="text-sm text-muted-foreground">
                         {
-                            completedTasksCount > 0 && (<>
-                                Tuyệt vời ! Bạn đã hoàn thành {completedTasksCount} nhiệm vụ
+                            completeTaskCount > 0 && (<>
+                                Tuyệt vời ! Bạn đã hoàn thành {completeTaskCount} nhiệm vụ
                                 {
-                                    activateTasksCount > 0 && `, còn ${activateTasksCount} nhiệm vụ nữa thôi, Cố lênnn`
+                                    activeTaskCount > 0 && `, còn ${activeTaskCount} nhiệm vụ nữa thôi, Cố lênnn`
                                 }
                             </>)
                         }
 
-                        {completedTasksCount === 0 && activateTasksCount> 0 && (
-                            <>Hãy bắt đầu làm {activateTasksCount} nhiệm vụ nào !!!</>
+                        {completeTaskCount === 0 && activeTaskCount> 0 && (
+                            <>Hãy bắt đầu làm {activeTaskCount} nhiệm vụ nào !!!</>
                         )}
                     </p>
                 </div>
